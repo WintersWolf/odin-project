@@ -90,3 +90,11 @@ body{
   color: white;
   text-align: right;
 }
+
+.keypadOp{
+  background-color: #001845;
+}
+
+.keypadClear{
+  background-color: #e63946;
+}
