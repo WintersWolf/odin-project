@@ -1,0 +1,71 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.html{
+  position: relative;
+  min-height: 100%;
+}
+
+body{
+  background-color: #452cd6;
+}
+
+:root {
+  --grid-cols: 1;
+  --grid-rows: 1;
+}
+
+.container{
+  display: flex;
+  height: 49vw;
+  width: 49vw;
+}
+
+#sketchpad {
+  display: grid;
+  width: 500px;
+  height: 500px;
+  box-sizing: content-box;
+  position: absolute;
+  z-index: 15;
+  top: 35%;
+  left: 45%;
+  margin: -100px 0 0 -150px;
+ 
+}
+
+#sketchpad .grid-item{
+  background-color: white;
+  user-select: none;
+  box-sizing: content-box;
+  padding: 1em;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+#sketchpad .grid-item:hover{
+  background-color: black;
+}
+
+.buttonNew{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 15;
+  top: 29%;
+  left: 45%;
+  margin: -100px 0 0 -150px;
+}
