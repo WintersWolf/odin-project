@@ -2,7 +2,7 @@ body{
   background-color: #0353A4;
   font-family: 'Anybody', cursive;
 }
-
+/* Main body of calc */
 .calcBG {
   border-radius: 25px;
   background: #5C677D;
@@ -24,6 +24,8 @@ body{
   0 100px 80px rgba(0, 0, 0, 0.12)
 }
 
+/* calc screen styling */
+
 .calcScreen{
   border-radius: 25px;
   background: #33415C;
@@ -35,7 +37,9 @@ body{
   height: 50px;
 }
 
-.calcDisplay{
+/* text on calc screen for displaying input and results */
+
+.calcOutput{
   color: #0466C8;
   padding-right: 30px;
   font-size: xx-large;
@@ -43,6 +47,8 @@ body{
   justify-content: flex-end;
   margin: 0;
 }
+
+/* grouping of all calc buttons */
 
 .keypad{
   padding-top: 30px;
@@ -53,6 +59,8 @@ body{
   flex-wrap:wrap;
   margin: 0;
 }
+
+/* individiaul calc button styling */
 
 .keypadBtn{
   border-radius: 8px;
@@ -70,9 +78,13 @@ body{
   background-color: #0466C8;
 }
 
+/* increase size of equals button so it takes up 2 columns */
+
 .keypadEquals{
   width: 175px;
 }
+
+/* flair text on bottom of calc */
 
 .calcBottom{
   color: white;

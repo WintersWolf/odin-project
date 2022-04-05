@@ -8,41 +8,44 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anybody&display=swap" rel="stylesheet"> 
-  <title>Calculator</title>
+  <title>calculator</title>
 </head>
 <body>
   <!-- main body of calculator -->
   <div class="calcBG">
     <!-- calculator screen -->
     <div class="calcScreen">
-      <p class="calcDisplay">0</p>
+      <p class="calcOutput"></p>
+      <p data-prev-op class="calcOutput"></p>
+      <p data-curr-op class="calcOutput"></p>
     </div>
     <!-- keypad container for all the keypad buttons -->
     <div class="keypad">
-    <button class="keypadBtn">AC</button>
-    <button class="keypadBtn">C</button>
-    <button class="keypadBtn">%</button>
-    <button class="keypadBtn">÷</button>
-    <button class="keypadBtn">7</button>
-    <button class="keypadBtn">8</button>
-    <button class="keypadBtn">9</button>
-    <button class="keypadBtn">+</button>
-    <button class="keypadBtn">4</button>
-    <button class="keypadBtn">5</button>
-    <button class="keypadBtn">6</button>
-    <button class="keypadBtn">-</button>
-    <button class="keypadBtn">1</button>
-    <button class="keypadBtn">2</button>
-    <button class="keypadBtn">3</button>
+    <button data-all-clear class="keypadBtn">AC</button>
+    <button data-del class="keypadBtn">C</button>
+    <button data-op class="keypadBtn">%</button>
+    <button data-op class="keypadBtn">÷</button>
+    <button data-num class="keypadBtn">7</button>
+    <button data-num class="keypadBtn">8</button>
+    <button data-num class="keypadBtn">9</button>
+    <button data-op class="keypadBtn">+</button>
+    <button data-num class="keypadBtn">4</button>
+    <button data-num class="keypadBtn">5</button>
+    <button data-num class="keypadBtn">6</button>
+    <button data-op class="keypadBtn">-</button>
+    <button data-num class="keypadBtn">1</button>
+    <button data-num class="keypadBtn">2</button>
+    <button data-num class="keypadBtn">3</button>
     <button class="keypadBtn">x</button>
-    <button class="keypadBtn">0</button>
-    <button class="keypadBtn">.</button>
-    <button class="keypadBtn keypadEquals">=</button>
+    <button data-num class="keypadBtn">0</button>
+    <button data-num class="keypadBtn">.</button>
+    <button data-equals class="keypadBtn keypadEquals">=</button>
   </div>
   <!-- flair text container -->
   <div class="calcBottom">
-    <p>QWIKMAFS CALC</p>
+    <p>QWIKMAFS calculator</p>
   </div>
   </div>
 </body>
+<script src="./calc.js"></script>
 </html>
