@@ -3,10 +3,13 @@ body{
 }
 
 .container{
-  width: 50%;
+  display: inline-block;
+  width: 50vw;
+  position:relative;
+  overflow: auto;
   height: 70vh;
   margin: 0 auto;
-  transform: translate(-0%, 20%);
+  transform: translate(50%, 20%);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
