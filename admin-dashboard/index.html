@@ -86,6 +86,9 @@
         <input type="text" class="input-search" placeholder="What are you looking for?">
       </div>
       <div class="noti-bar">
+        <div class="main-title">
+          <h2>Welcome back, Joey!</h2>
+        </div>
         <span class="material-icons">
           notifications
         </span>
@@ -97,13 +100,33 @@
       
     </div>
     <div class="main">
-      <div class="main-title">
-        <h2>Welcome back, Joey!</h2>
-      </div>
       <div class="content">
         <div class="card-left-top">
           <div class="card-title">
             <h3>Goals</h3>
+            <div>
+              <table>
+                <tr>
+                  <td class="td-r">
+                    <input id="goal-check" name="goal-check" type="checkbox" value="goalComplete" />
+                  </td>
+                  <td class="td-l">Finish writing unit tests</td>
+                </tr>
+                <tr>
+                  <td class="td-r">
+                    <input id="goal-check" name="goal-check" type="checkbox" value="goalComplete" />
+                  </td>
+                  <td class="td-l">Implement new feature</td>
+                  
+                </tr>
+                <tr>
+                  <td class="td-r">
+                    <input id="goal-check" name="goal-check" type="checkbox" value="goalComplete" />
+                  </td>
+                  <td class="td-l">Meet all deadlines</td>
+                </tr>
+            </table>
+            </div>
           </div>
         </div>
         <div class="card-left-middle">
@@ -119,16 +142,39 @@
         <div class="card-right-top">
           <div class="card-title">
             <h3>Assigned Tasks</h3>
+            <table>
+              <tr>
+                <td class="td-r">
+                  <button class="view-task" role="button">View Task</button>
+                </td>
+                <td class="td-l">Migrate login form</td>
+              </tr>
+              <tr>
+                <td class="td-r">
+                  <button class="view-task" role="button">View Task</button>
+                </td>
+                <td class="td-l">Implement hashing</td>
+                
+              </tr>
+              <tr>
+                <td class="td-r">
+                  <button class="view-task" role="button">View Task</button>
+                </td>
+                <td class="td-l">Update design pattern docs</td>
+              </tr>
+          </table>
           </div>
         </div>
         <div class="card-right-middle">
           <div class="card-title">
             <h3>Unread Messages</h3>
+            
           </div>
         </div>
         <div class="card-right-bottom">
           <div class="card-title">
             <h3>Stats</h3>
+              
           </div>
         </div>
         <div class="side-card-top">
@@ -136,18 +182,18 @@
             <h3>Announcements</h3>
           </div>
           <div class="announcement">
-            <h4 class="announcement-title">Announcements</h4>
-            <p class="announcement-desc">lorem testicus texticus</p>
+            <h4 class="announcement-title">Stand-Up Meeting</h4>
+            <p class="announcement-desc">The stand-up meeting for this week has been delayed until further notice.</p>
             <hr>
           </div>
           <div class="announcement">
-            <h4 class="announcement-title">Announcements</h4>
-            <p class="announcement-desc">lorem testicus texticus</p>
+            <h4 class="announcement-title">Scheduled Maintenace</h4>
+            <p class="announcement-desc">The regularly scheduled maintenance will take place at 6PM on Monday.</p>
             <hr>
           </div>
           <div class="announcement">
-            <h4 class="announcement-title">Announcements</h4>
-            <p class="announcement-desc">lorem testicus texticus</p>
+            <h4 class="announcement-title">Birthday Cake!</h4>
+            <p class="announcement-desc">Come get some from the lunch room :)</p>
             <hr>
           </div>
         </div>
@@ -160,4 +206,5 @@
     </div>
   </div> 
 </body>
+<script src="./assets/js/checkbox.js"></script>
 </html>

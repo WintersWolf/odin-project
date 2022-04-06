@@ -1,10 +1,13 @@
+*{
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
 body,html{
   padding: 0;
   margin: 0;
-}
-
-*{
-  box-sizing: border-box;
+  height: 100%;
 }
 
 .parent {
@@ -16,7 +19,7 @@ body,html{
   grid-template-rows: 1fr 8fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  min-height: calc(100vh - 3px);
+  min-height: 100vh
   
   }
   
@@ -181,16 +184,20 @@ body,html{
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     padding: 2%;
     gap: 2%;
     color: white;
     font-family: 'Barlow Condensed', sans-serif;
+    align-self: center;
+    justify-self: center;
+   
     }
 
     .main-title {
       color: white;
       padding-left: 2%;
+      padding-right: 2%;
       font-size: larger;
       font-family: 'Barlow Condensed', sans-serif;
     }
@@ -241,5 +248,73 @@ body,html{
     .card-title {
       color: #f93a0b;
     }
-     
+
+    /* table styles */
+    
+    table{
+      width: 100%;
+      color: white;
+      font-size: x-large;
+    }
+    
+    tr {
+      height: 60px;
+    }
+
+    td-l {
+      width: 90%;
+      height: 60px;
+      text-align: left;
+    }
+
+    td-r {
+      width: 90%;
+      height: 60px;
+    }
+    
+    /* Button Styling */
+    .view-task {
+      align-items: center;
+      background-clip: padding-box;
+      background-color: transparent;
+      border: 2px solid #fa6400;
+      box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+      box-sizing: border-box;
+      color: #fa6400;
+      cursor: pointer;
+      display: inline-flex;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 16px;
+      font-weight: 600;
+      justify-content: center;
+      line-height: 1.25;
+      margin: 0;
+      min-height: 3rem;
+      padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+      position: relative;
+      text-decoration: none;
+      transition: all 250ms;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      vertical-align: baseline;
+      width: auto;
+    }
+    
+    .view-task:hover,
+    .view-task:focus {
+      background-color: transparent;
+      box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    }
+    
+    .view-task:hover {
+      transform: translateY(-1px);
+    }
+    
+    .view-task:active {
+      background-color: transparent;
+      box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+      transform: translateY(0);
+    }
+
     
