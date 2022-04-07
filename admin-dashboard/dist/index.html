@@ -9,7 +9,8 @@
       rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bebas+Neue&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 
   <title>Admin Dashboard</title>
 </head>
@@ -132,11 +133,39 @@
         <div class="card-left-middle">
           <div class="card-title">
             <h3>Timeline</h3>
+            <p class="timeline-text"><span style="color: #A3E635">09:45AM</span> | You made a commit to New SaaS project.</p>
+            <hr>
+            <p class="timeline-text"><span style="color: #38BDF8">08:20AM</span> | You logged a new issue for New SaaS project.</p>
+            <hr>
+            <p class="timeline-text"><span style="color: #A3E635">08:00AM</span> | You became available.</p>
+            <hr>
+            <p class="timeline-text"><span style="color: #A3E635">07:45AM</span>  | You logged in from an authorized device.</p>
           </div>
         </div>
         <div class="card-left-bottom">
           <div class="card-title">
             <h3>Projects</h3>
+            <table>
+              <tr>
+                <td class="td-r">
+                  <button class="view-task" role="button">View Project</button>
+                </td>
+                <td class="td-l">New SaaS</td>
+              </tr>
+              <tr>
+                <td class="td-r">
+                  <button class="view-task" role="button">View Project</button>
+                </td>
+                <td class="td-l">Legacy Code Migration</td>
+                
+              </tr>
+              <tr>
+                <td class="td-r">
+                  <button class="view-task" role="button">View Project</button>
+                </td>
+                <td class="td-l">Code Cleanup</td>
+              </tr>
+          </table>
           </div>
         </div>
         <div class="card-right-top">
@@ -168,13 +197,44 @@
         <div class="card-right-middle">
           <div class="card-title">
             <h3>Unread Messages</h3>
-            
+            <table>
+              <tr>
+                <td class="td-r">
+                  <button class="view-task" role="button">Read</button>
+                </td>
+                <td class="td-l">From: John | Did you get the design docs that Kelly...</td>
+              </tr>
+              <tr>
+                <td class="td-r">
+                  <button class="view-task" role="button">Read</button>
+                </td>
+                <td class="td-l">From: Kelly | Design docs are attached as requested.</td>
+                
+              </tr>
+              <tr>
+                <td class="td-r">
+                  <button class="view-task" role="button">Read</button>
+                </td>
+                <td class="td-l">From: Leo | Hey let's go to that new place for lunch...</td>
+              </tr>
+          </table>
           </div>
         </div>
         <div class="card-right-bottom">
           <div class="card-title">
             <h3>Stats</h3>
-              
+            <table>
+              <tr>
+                <td><h2>Lines of Code</h2></td>
+                <td><h2>Commits</h2></td>
+                <td><h2>Issues</h2></td>
+              </tr>
+              <tr>
+                <td>5,624</td>
+                <td>3,783</td>
+                <td>16</td>
+              </tr>
+            </table>
           </div>
         </div>
         <div class="side-card-top">
@@ -200,6 +260,41 @@
         <div class="side-card-bottom">
           <div class="card-title">
             <h3>To Do List</h3>
+            <div>
+              <table>
+                <tr>
+                  <td class="td-r">
+                    <input id="goal-check" name="goal-check" type="checkbox" value="goalComplete" />
+                  </td>
+                  <td class="td-l">Read React Docs</td>
+                </tr>
+                <tr>
+                  <td class="td-r">
+                    <input id="goal-check" name="goal-check" type="checkbox" value="goalComplete" />
+                  </td>
+                  <td class="td-l">Attend Morning Meeting</td>
+                  
+                </tr>
+                <tr>
+                  <td class="td-r">
+                    <input id="goal-check" name="goal-check" type="checkbox" value="goalComplete" />
+                  </td>
+                  <td class="td-l">Finishing Security Patching</td>
+                </tr>
+                <tr>
+                  <td class="td-r">
+                    <input id="goal-check" name="goal-check" type="checkbox" value="goalComplete" />
+                  </td>
+                  <td class="td-l">Conduct Pair Programming</td>
+                </tr>
+                <tr>
+                  <td class="td-r">
+                    <input id="goal-check" name="goal-check" type="checkbox" value="goalComplete" />
+                  </td>
+                  <td class="td-l">Lunch With Leo</td>
+                </tr>
+            </table>
+            </div>
           </div>
         </div>
         </div> 

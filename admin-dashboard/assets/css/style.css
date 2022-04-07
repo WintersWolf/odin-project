@@ -317,4 +317,6 @@ body,html{
       transform: translateY(0);
     }
 
-    
+    .timeline-text{
+      color: white;
+    }
