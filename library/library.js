@@ -1,3 +1,5 @@
+
+
 let bookCounter = 0;
 let myLibrary = [
   {
@@ -6,7 +8,10 @@ let myLibrary = [
     "pages": 1050,
     "read": "Yes"
   }
-];
+]
+saveFile = localStorage.getItem('Book');
+myLibrary = JSON.parse(saveFile);
+
 function Book(title, author, pages, read) {
    this.title = title
    this.author = author
@@ -14,20 +19,22 @@ function Book(title, author, pages, read) {
    this.read = read
   }
 
+// add new Book to array after clearing the table then generating with new data
 function addBookToLibrary(){
-  Clear();
   let addtitle = document.getElementById('bookName').value;
   let addauthor = document.getElementById('bookAuthor').value;
   let addpages = document.getElementById('bookPages').value;
   let addread = document.getElementById('bookRead').value;
   let addition = new Book(addtitle, addauthor, addpages, addread);
   myLibrary.push(addition);
+  localStorage.setItem('Book', JSON.stringify(myLibrary));
+  Refresh();
   Display();
     
     return false;   
   }
 
-
+// Generate a table from our array
 function Display(){
 
 let entries = document.getElementById('entries');
@@ -37,11 +44,20 @@ for (var i = 0; i < Object.keys(myLibrary).length; i++) {
     entries.innerHTML += tr;
     bookCounter++;
 }
+
 }
 
-function Clear(){
+function Refresh(){
   const row = document.getElementById('entries');
   row.innerHTML = '';
+}
+
+// Reset table by clearing HTML from it before generating with latest array
+function Clear(){
+  myLibrary = [];
+  const row = document.getElementById('entries');
+  row.innerHTML = '';
+  localStorage.setItem('Book', JSON.stringify(myLibrary));
 }
 
 Display();
@@ -50,6 +66,7 @@ console.log(bookCounter);
 // Display modal on click of button and close when clicking outside of modal or on x
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("addBtn");
+var clearbtn = document.getElementById("clearBtn");
 var span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {

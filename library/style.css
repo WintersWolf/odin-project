@@ -152,6 +152,16 @@ table.responsive-table{
   color: white;
 }
 
+.clear-button {
+  background-color: #292e40; 
+  color: white; 
+}
+
+.clear-button:hover {
+  background-color: red;
+  color: white;
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */

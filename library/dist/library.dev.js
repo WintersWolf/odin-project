@@ -7,25 +7,30 @@ var myLibrary = [{
   "pages": 1050,
   "read": "Yes"
 }];
+saveFile = localStorage.getItem('Book');
+myLibrary = JSON.parse(saveFile);
 
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-}
+} // add new Book to array after clearing the table then generating with new data
+
 
 function addBookToLibrary() {
-  Clear();
   var addtitle = document.getElementById('bookName').value;
   var addauthor = document.getElementById('bookAuthor').value;
   var addpages = document.getElementById('bookPages').value;
   var addread = document.getElementById('bookRead').value;
   var addition = new Book(addtitle, addauthor, addpages, addread);
   myLibrary.push(addition);
+  localStorage.setItem('Book', JSON.stringify(myLibrary));
+  Refresh();
   Display();
   return false;
-}
+} // Generate a table from our array
+
 
 function Display() {
   var entries = document.getElementById('entries');
@@ -38,9 +43,17 @@ function Display() {
   }
 }
 
-function Clear() {
+function Refresh() {
   var row = document.getElementById('entries');
   row.innerHTML = '';
+} // Reset table by clearing HTML from it before generating with latest array
+
+
+function Clear() {
+  myLibrary = [];
+  var row = document.getElementById('entries');
+  row.innerHTML = '';
+  localStorage.setItem('Book', JSON.stringify(myLibrary));
 }
 
 Display();
@@ -48,6 +61,7 @@ console.log(bookCounter); // Display modal on click of button and close when cli
 
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("addBtn");
+var clearbtn = document.getElementById("clearBtn");
 var span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function () {
