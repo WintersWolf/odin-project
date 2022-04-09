@@ -10,10 +10,11 @@
 <body>
   <div class="container">
     <div class="nav">
-
+      
     </div>
     <div class="sidebar">
       <img src="./img/myLIB.png" class="logo">
+      <button class="button add-button" id="addBtn">Add New Book</button>
     </div>
     <div class="content">
 
@@ -28,13 +29,50 @@
               <th>Read</th>
             </tr>
           </thead>
-          <tbody id="tbody">
+          <tbody id="entries">
 
           </tbody>
         </table>
       </div>
     </div>
   </div>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Add New Book</h2>
+    </div>
+    <div class="modal-body">
+      <form onsubmit="return addBookToLibrary()">
+        <label for="bookName">Book Name</label>
+        <input type="text" id="bookName" name="bookname" placeholder="Enter book name...">
+    
+        <label for="bookAuthor">Author Name</label>
+        <input type="text" id="bookAuthor" name="authorname" placeholder="Enter author name...">
+        
+        <label for="bookPages">Pages</label>
+        <input type="number" id="bookPages" name="bookpages" placeholder="Number of pages...">
+    
+        <label for="bookRead">Read?</label>
+        <select id="bookRead" name="readbook">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      
+        
+    </div>
+    <div class="modal-footer">
+      <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+
+</div>
+
 </body>
 <script src="./library.js"></script>
 </html>
