@@ -19,6 +19,7 @@ function addBookToLibrary(){
   myLibrary.push(addition);
   localStorage.setItem('Book', JSON.stringify(myLibrary));
   Display();
+  modal.style.display = "none";
     
     return false;   
   }
@@ -33,7 +34,7 @@ function Display(){
     let entries = document.getElementById('entries');
     for (var i = 0; i < Object.keys(myLibrary).length; i++) {
     var tr = "<tr>";
-    tr += '<td>' + myLibrary[i].title + '</td>' + '<td>' + myLibrary[i].author.toString() +  '</td>' + '<td>' + myLibrary[i].pages.toString() +  '</td>' + '<td>' + '<button class="button ' + myLibrary[i].read.toString() + '" onClick="readBook(' + i +')">' + myLibrary[i].read.toString() + '</button>' +  '</td>' + '<td>' + '<button class="button" onClick="deleteBook(' + i +')">' + 'Remove</button>' + '</td></tr>';
+    tr += '<td>' + myLibrary[i].title + '</td>' + '<td>' + myLibrary[i].author.toString() +  '</td>' + '<td>' + myLibrary[i].pages.toString() +  '</td>' + '<td>' + '<button class="button ' + myLibrary[i].read.toString() + '" onClick="readBook(' + i +')">' + myLibrary[i].read.toString() + '</button>' +  '</td>' + '<td>' + '<img src="./img/remove.png" class="removeIcon" onClick="deleteBook(' + i +')">' + '</img>' + '</td></tr>';
     entries.innerHTML += tr;
 }
 }

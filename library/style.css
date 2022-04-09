@@ -21,7 +21,15 @@
 
 .nav { 
   grid-area: nav;
-  background-color: #ffffff;
+  background-color: #292e40;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.bookCount {
+  padding-right: 1vw;
 }
 
 .sidebar { 
@@ -51,6 +59,7 @@ a{
   max-width: 60em;
   margin: 0 auto;
 }
+
 table th,
 table td{
   text-align: left;
@@ -213,15 +222,15 @@ table.responsive-table{
 }
 
 .modal-header {
-  padding: 2px 16px;
+  padding: 3vh 3vw;
   background-color: #292e40;
   color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {padding: 3vh 3vw;}
 
 .modal-footer {
-  padding: 2px 16px;
+  padding: 1vh 3vw;
   background-color: #292e40;
   color: white;
 }
@@ -270,4 +279,8 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #45a049;
+}
+
+.removeIcon {
+  width: 2vw;
 }
