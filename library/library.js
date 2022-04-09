@@ -1,5 +1,5 @@
 let bookCounter = 0;
-let myLibrary = []
+let myLibrary = [];
 
 function Book(title, author, pages, read) {
    this.title = title
@@ -30,14 +30,14 @@ function Display(){
   if(saveFile === null){
     myLibrary = [];
   } else {
-let entries = document.getElementById('entries');
-for (var i = 0; i < Object.keys(myLibrary).length; i++) {
+    let entries = document.getElementById('entries');
+    for (var i = 0; i < Object.keys(myLibrary).length; i++) {
     var tr = "<tr>";
-    tr += "<td>" + myLibrary[i].title + "</td>" + "<td>" + myLibrary[i].author.toString() +  "</td>" + "<td>" + myLibrary[i].pages.toString() +  "</td>" + "<td>" + myLibrary[i].read.toString() +  "</td></tr>";
+    tr += '<td>' + myLibrary[i].title + '</td>' + '<td>' + myLibrary[i].author.toString() +  '</td>' + '<td>' + myLibrary[i].pages.toString() +  '</td>' + '<td>' + '<button class="button ' + myLibrary[i].read.toString() + '" onClick="readBook(' + i +')">' + myLibrary[i].read.toString() + '</button>' +  '</td>' + '<td>' + '<button class="button" onClick="deleteBook(' + i +')">' + 'Remove</button>' + '</td></tr>';
     entries.innerHTML += tr;
-    bookCounter++;
 }
 }
+document.getElementById('bookCount').innerHTML = 'You have ' + i + ' books.';
 }
 
 function Refresh(){
@@ -53,6 +53,29 @@ function Clear(){
   localStorage.setItem('Book', JSON.stringify(myLibrary));
 }
 
+const deleteBook = (index) => {
+  myLibrary.splice(index, 1);
+  localStorage.getItem('Book');
+  localStorage.setItem('Book', JSON.stringify(myLibrary));
+  Refresh();
+  Display();
+};
+
+
+const readBook = (index) => {
+  if(myLibrary[index].read === "Yes"){
+    myLibrary[index].read = "No";
+    localStorage.setItem('Book', JSON.stringify(myLibrary));
+    Refresh();
+    Display();
+  } else {
+    myLibrary[index].read = "Yes";
+    localStorage.setItem('Book', JSON.stringify(myLibrary));
+    Refresh();
+    Display();
+  }
+  
+}
 Display();
 console.log(bookCounter);
 

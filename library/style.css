@@ -36,6 +36,7 @@
   grid-area: content;
   background-color: #ffffff;
   color: black;
+  overflow: auto;
 }
 
 .logo {
@@ -128,7 +129,7 @@ table.responsive-table{
     }
 }
 
-.button {
+.button, .Yes {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
@@ -140,6 +141,10 @@ table.responsive-table{
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
+}
+
+.No {
+  background-color: red;
 }
 
 .add-button {

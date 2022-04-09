@@ -36,11 +36,12 @@ function Display() {
 
     for (var i = 0; i < Object.keys(myLibrary).length; i++) {
       var tr = "<tr>";
-      tr += "<td>" + myLibrary[i].title + "</td>" + "<td>" + myLibrary[i].author.toString() + "</td>" + "<td>" + myLibrary[i].pages.toString() + "</td>" + "<td>" + myLibrary[i].read.toString() + "</td></tr>";
+      tr += '<td>' + myLibrary[i].title + '</td>' + '<td>' + myLibrary[i].author.toString() + '</td>' + '<td>' + myLibrary[i].pages.toString() + '</td>' + '<td>' + '<button class="button ' + myLibrary[i].read.toString() + '" onClick="readBook(' + i + ')">' + myLibrary[i].read.toString() + '</button>' + '</td>' + '<td>' + '<button class="button" onClick="deleteBook(' + i + ')">' + 'Remove</button>' + '</td></tr>';
       entries.innerHTML += tr;
-      bookCounter++;
     }
   }
+
+  document.getElementById('bookCount').innerHTML = 'You have ' + i + ' books.';
 }
 
 function Refresh() {
@@ -55,6 +56,28 @@ function Clear() {
   row.innerHTML = '';
   localStorage.setItem('Book', JSON.stringify(myLibrary));
 }
+
+var deleteBook = function deleteBook(index) {
+  myLibrary.splice(index, 1);
+  localStorage.getItem('Book');
+  localStorage.setItem('Book', JSON.stringify(myLibrary));
+  Refresh();
+  Display();
+};
+
+var readBook = function readBook(index) {
+  if (myLibrary[index].read === "Yes") {
+    myLibrary[index].read = "No";
+    localStorage.setItem('Book', JSON.stringify(myLibrary));
+    Refresh();
+    Display();
+  } else {
+    myLibrary[index].read = "Yes";
+    localStorage.setItem('Book', JSON.stringify(myLibrary));
+    Refresh();
+    Display();
+  }
+};
 
 Display();
 console.log(bookCounter); // Display modal on click of button and close when clicking outside of modal or on x
