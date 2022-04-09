@@ -1,16 +1,5 @@
-
-
 let bookCounter = 0;
-let myLibrary = [
-  {
-    "title": "Harry Potter and the Philosophers Stone",
-    "author": "JK Rowling",
-    "pages": 1050,
-    "read": "Yes"
-  }
-]
-saveFile = localStorage.getItem('Book');
-myLibrary = JSON.parse(saveFile);
+let myLibrary = []
 
 function Book(title, author, pages, read) {
    this.title = title
@@ -21,6 +10,7 @@ function Book(title, author, pages, read) {
 
 // add new Book to array after clearing the table then generating with new data
 function addBookToLibrary(){
+  Refresh();
   let addtitle = document.getElementById('bookName').value;
   let addauthor = document.getElementById('bookAuthor').value;
   let addpages = document.getElementById('bookPages').value;
@@ -28,7 +18,6 @@ function addBookToLibrary(){
   let addition = new Book(addtitle, addauthor, addpages, addread);
   myLibrary.push(addition);
   localStorage.setItem('Book', JSON.stringify(myLibrary));
-  Refresh();
   Display();
     
     return false;   
@@ -36,7 +25,11 @@ function addBookToLibrary(){
 
 // Generate a table from our array
 function Display(){
-
+  saveFile = localStorage.getItem('Book');
+  myLibrary = JSON.parse(saveFile);
+  if(saveFile === null){
+    myLibrary = [];
+  } else {
 let entries = document.getElementById('entries');
 for (var i = 0; i < Object.keys(myLibrary).length; i++) {
     var tr = "<tr>";
@@ -44,7 +37,7 @@ for (var i = 0; i < Object.keys(myLibrary).length; i++) {
     entries.innerHTML += tr;
     bookCounter++;
 }
-
+}
 }
 
 function Refresh(){

@@ -1,14 +1,7 @@
 "use strict";
 
 var bookCounter = 0;
-var myLibrary = [{
-  "title": "Harry Potter and the Philosophers Stone",
-  "author": "JK Rowling",
-  "pages": 1050,
-  "read": "Yes"
-}];
-saveFile = localStorage.getItem('Book');
-myLibrary = JSON.parse(saveFile);
+var myLibrary = [];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -19,6 +12,7 @@ function Book(title, author, pages, read) {
 
 
 function addBookToLibrary() {
+  Refresh();
   var addtitle = document.getElementById('bookName').value;
   var addauthor = document.getElementById('bookAuthor').value;
   var addpages = document.getElementById('bookPages').value;
@@ -26,20 +20,26 @@ function addBookToLibrary() {
   var addition = new Book(addtitle, addauthor, addpages, addread);
   myLibrary.push(addition);
   localStorage.setItem('Book', JSON.stringify(myLibrary));
-  Refresh();
   Display();
   return false;
 } // Generate a table from our array
 
 
 function Display() {
-  var entries = document.getElementById('entries');
+  saveFile = localStorage.getItem('Book');
+  myLibrary = JSON.parse(saveFile);
 
-  for (var i = 0; i < Object.keys(myLibrary).length; i++) {
-    var tr = "<tr>";
-    tr += "<td>" + myLibrary[i].title + "</td>" + "<td>" + myLibrary[i].author.toString() + "</td>" + "<td>" + myLibrary[i].pages.toString() + "</td>" + "<td>" + myLibrary[i].read.toString() + "</td></tr>";
-    entries.innerHTML += tr;
-    bookCounter++;
+  if (saveFile === null) {
+    myLibrary = [];
+  } else {
+    var entries = document.getElementById('entries');
+
+    for (var i = 0; i < Object.keys(myLibrary).length; i++) {
+      var tr = "<tr>";
+      tr += "<td>" + myLibrary[i].title + "</td>" + "<td>" + myLibrary[i].author.toString() + "</td>" + "<td>" + myLibrary[i].pages.toString() + "</td>" + "<td>" + myLibrary[i].read.toString() + "</td></tr>";
+      entries.innerHTML += tr;
+      bookCounter++;
+    }
   }
 }
 
