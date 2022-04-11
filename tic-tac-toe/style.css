@@ -1,0 +1,27 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  height: 100vh;
+}
+
+.game-board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-style: hidden;
+}
+table td {
+  padding: 1rem;
+  border: 5px solid black;
+  width: 10vw;
+  height: 10vh;
+}
