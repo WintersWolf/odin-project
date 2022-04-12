@@ -57,6 +57,7 @@ var Players = function () {
     var playertwo = new Player(setplayertwo, "O");
     document.getElementById('pone-text').innerHTML = setplayerone;
     document.getElementById('ptwo-text').innerHTML = setplayertwo;
+    modal.style.display = "none";
     return false;
   };
 

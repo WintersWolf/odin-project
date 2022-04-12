@@ -58,6 +58,9 @@ let Players = (function() {
     
     document.getElementById('pone-text').innerHTML = setplayerone;
     document.getElementById('ptwo-text').innerHTML = setplayertwo;
+    
+    modal.style.display = "none";
+    
     return false;
   }
 
@@ -82,7 +85,7 @@ let Players = (function() {
 
 let Game = (function() {
   'use strict';
-  
+
   let turn = 0;
   
 
