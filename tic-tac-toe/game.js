@@ -36,7 +36,60 @@ let GameBoard = (function() {
 
 })();
 
+let Players = (function() {
+  'use strict';
+  let modal = document.getElementById("info-players");
+  let btn = document.getElementById("set-players");
+  let span = document.getElementsByClassName("close")[0];
+  let accept = document.getElementById("accept");
+  
 
+  function Player(name, marker){
+    this.name = name;
+    this.marker = marker;
+  
+  }
+
+  accept.onclick = function() {
+    let setplayerone = document.getElementById('pone').value;
+    let setplayertwo = document.getElementById('ptwo').value;
+    let playerone = new Player(setplayerone, "X");
+    let playertwo = new Player(setplayertwo, "O");
+    
+    document.getElementById('pone-text').innerHTML = setplayerone;
+    document.getElementById('ptwo-text').innerHTML = setplayertwo;
+    return false;
+  }
+
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+ 
+})();
+
+
+
+
+let Game = (function() {
+  'use strict';
+  
+  let turn = 0;
+  
+
+  
+
+  
+})();
 
 
 

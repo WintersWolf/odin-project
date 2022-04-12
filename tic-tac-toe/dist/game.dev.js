@@ -36,4 +36,48 @@ var GameBoard = function () {
   createBoard();
   display();
 }();
+
+var Players = function () {
+  'use strict';
+
+  var modal = document.getElementById("info-players");
+  var btn = document.getElementById("set-players");
+  var span = document.getElementsByClassName("close")[0];
+  var accept = document.getElementById("accept");
+
+  function Player(name, marker) {
+    this.name = name;
+    this.marker = marker;
+  }
+
+  accept.onclick = function () {
+    var setplayerone = document.getElementById('pone').value;
+    var setplayertwo = document.getElementById('ptwo').value;
+    var playerone = new Player(setplayerone, "X");
+    var playertwo = new Player(setplayertwo, "O");
+    document.getElementById('pone-text').innerHTML = setplayerone;
+    document.getElementById('ptwo-text').innerHTML = setplayertwo;
+    return false;
+  };
+
+  btn.onclick = function () {
+    modal.style.display = "block";
+  };
+
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+}();
+
+var Game = function () {
+  'use strict';
+
+  var turn = 0;
+}();
 //# sourceMappingURL=game.dev.js.map

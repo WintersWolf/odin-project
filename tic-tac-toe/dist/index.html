@@ -8,13 +8,37 @@
   <title>Tic Tac Toe</title>
 </head>
 <body>
+  <button id="set-players">Change Players</button>
   <div class="game-board" id="game">
+    <div class="players-gameboard">
+      <h2 id="pone-text">Player One</h2><h1>Vs.</h1><h2 id="ptwo-text">Player Two</h2>
+    </div>
     <table>
       <tbody id="play">
         
       </tbody>
     </table>
   </div>
+
+
+<!-- The Modal -->
+<div id="info-players" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form action="">
+      <label for="pone">Player One</label>
+      <input type="text" id="pone" name="playerone" placeholder="Enter player one's name...">
+  
+      <label for="ptwo">Player Two</label>
+      <input type="text" id="ptwo" name="playertwo" placeholder="Enter player two's name...">
+    
+      <button id="accept">Accept</button>
+    </form>
+  </div>
+
+</div>
 </body>
 <script src="./game.js"></script>
 </html>
