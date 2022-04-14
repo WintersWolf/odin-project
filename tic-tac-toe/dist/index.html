@@ -13,36 +13,50 @@
   </div>
   
   <div class="game-board" id="game">
+    <div class="turn-state">
+      <p>Player <span class="display-player player1">1</span>'s turn</p>
+    </div>
+    <div class="scores" id="scores">
+      <h1 id="pone-score">0</h1><h1 id="ptwo-score">0</h1>
+    </div>
     <div class="players-gameboard">
       <h2 id="pone-text">Player One</h2><h1>Vs.</h1><h2 id="ptwo-text">Player Two</h2>
     </div>
-    <table>
-      <tbody id="play">
-        
-      </tbody>
-    </table>
+    <div class="container">
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
+      <div class="tile"></div>
   </div>
-
-  
+  <section class="display status hide"></section>
+  <div class="new-game">
+      <button class="btn" id="reset">New Game</button>
+  </div>
+  </div>
 
 <!-- The Modal -->
 <div id="info-players" class="modal" style="--m-background: hsla(0, 0%, 0%, .4);">
 
-  <!-- Modal content -->
   <div class="modal-content" >
     <span class="close">&times;</span>
     <form action="">
       <label for="pone">Player One</label>
-      <input type="text" id="pone" name="playerone" placeholder="Enter player one's name...">
+      <input type="text" id="pone" name="player1" placeholder="Enter player one's name...">
   
       <label for="ptwo">Player Two</label>
-      <input type="text" id="ptwo" name="playertwo" placeholder="Enter player two's name...">
+      <input type="text" id="ptwo" name="player2" placeholder="Enter player two's name...">
     
       <button class="btn" id="accept">Accept</button>
     </form>
   </div>
 
 </div>
+
 </body>
 <script src="./game.js"></script>
 </html>

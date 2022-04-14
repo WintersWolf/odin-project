@@ -1,84 +1,112 @@
 "use strict";
 
-var GameBoard = function () {
-  'use strict';
-
-  var board = [];
-
-  function Board(topLeft, topMiddle, topRight, midLeft, midMiddle, midRight, botLeft, botMiddle, botRight) {
-    this.topLeft = topLeft;
-    this.topMiddle = topMiddle;
-    this.topRight = topRight;
-    this.midLeft = midLeft;
-    this.midMiddle = midMiddle;
-    this.midRight = midRight;
-    this.botLeft = botLeft;
-    this.botMiddle = botMiddle;
-    this.botRight = botRight;
-  }
-
-  function createBoard() {
-    var create = new Board("X", "X", "X", "O", "X", "O", "O", "O", "X");
-    board.push(create);
-    return false;
-  }
-
-  function display() {
-    var play = document.getElementById('play');
-
-    for (var i = 0; i < Object.keys(board).length; i++) {
-      var tr = "<tr>";
-      tr += '<td>' + board[i].topLeft + '</td><td>' + board[i].topMiddle + '</td><td>' + board[i].topRight + '</td></tr>' + '<tr><td>' + board[i].midLeft + '</td><td>' + board[i].midMiddle + '</td><td>' + board[i].midRight + '</td></tr>' + '<tr><td>' + board[i].botLeft + '</td><td>' + board[i].botMiddle + '</td><td>' + board[i].botRight + '</td></tr>';
-      play.innerHTML += tr;
+var gameBoard = {
+  board: ['', '', '', '', '', '', '', '', ''],
+  tiles: Array.from(document.querySelectorAll('.tile'))
+};
+var players = {
+  turn: 'X',
+  p1Wins: 'p1Wins',
+  p2Wins: 'p2Wins',
+  tie: 'tie',
+  displayTurn: document.querySelector('.display-player')
+};
+var gameLogic = {
+  playing: true,
+  winCons: [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]],
+  canDo: function canDo(tile) {
+    if (tile.innerText === 'X' || tile.innerText === 'O') {
+      return false;
     }
-  }
 
-  createBoard();
-  display();
-}();
-
-var Players = function () {
-  'use strict';
-
-  var modal = document.getElementById("info-players");
-  var btn = document.getElementById("set-players");
-  var span = document.getElementsByClassName("close")[0];
-  var accept = document.getElementById("accept");
-
-  function Player(name, marker) {
-    this.name = name;
-    this.marker = marker;
-  }
-
-  accept.onclick = function () {
-    var setplayerone = document.getElementById('pone').value;
-    var setplayertwo = document.getElementById('ptwo').value;
-    var playerone = new Player(setplayerone, "X");
-    var playertwo = new Player(setplayertwo, "O");
-    document.getElementById('pone-text').innerHTML = setplayerone;
-    document.getElementById('ptwo-text').innerHTML = setplayertwo;
-    modal.style.display = "none";
-    return false;
-  };
-
-  btn.onclick = function () {
-    modal.style.display = "block";
-  };
-
-  span.onclick = function () {
-    modal.style.display = "none";
-  };
-
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
+    return true;
+  },
+  makeMove: function makeMove(tile, index) {
+    if (gameLogic.canDo(tile) && gameLogic.playing) {
+      tile.innerText = players.turn;
+      tile.classList.add("player".concat(players.turn));
+      gameLogic.refresh(index);
+      gameLogic.checkWin();
+      gameLogic.endTurn();
     }
-  };
-}();
+  },
+  endTurn: function endTurn() {
+    players.displayTurn.classList.remove("player".concat(players.turn));
+    players.turn = players.turn === 'X' ? 'O' : 'X';
+    players.displayTurn.innerText = players.turn;
+    players.displayTurn.classList.add("player".concat(players.turn));
+  },
+  checkWin: function checkWin() {
+    var endGame = false;
 
-var Game = function () {
-  'use strict';
+    for (var i = 0; i <= 7; i++) {
+      var winCondition = gameLogic.winCons[i];
+      var a = gameBoard.board[winCondition[0]];
+      var b = gameBoard.board[winCondition[1]];
+      var c = gameBoard.board[winCondition[2]];
 
-  var turn = 0;
+      if (a === '' || b === '' || c === '') {
+        continue;
+      }
+
+      if (a === b && b === c) {
+        endGame = true;
+        break;
+      }
+    }
+
+    if (endGame) {
+      gameLogic.state(players.turn === 'X' ? players.p1Wins : players.p2Wins);
+      gameLogic.playing = false;
+      return;
+    }
+
+    if (!gameBoard.board.includes('')) state(tie);
+  },
+  status: document.querySelector('.status'),
+  state: function state(type) {
+    switch (type) {
+      case players.p1Wins:
+        gameLogic.status.innerHTML = 'Player <span class="player1">1</span> Wins';
+        break;
+
+      case players.p2Wins:
+        gameLogic.status.innerHTML = 'Player <span class="player2">2</span> Wins';
+        break;
+
+      case players.tie:
+        gameLogic.status.innerText = 'tie';
+    }
+
+    gameLogic.status.classList.remove('hide');
+  },
+  refresh: function refresh(index) {
+    gameBoard.board[index] = players.turn;
+  },
+  resetButton: document.querySelector('#reset'),
+  resetBoard: function resetBoard() {
+    gameBoard.board = ['', '', '', '', '', '', '', '', ''];
+    gameLogic.playing = true;
+    gameLogic.status.classList.add('hide');
+
+    if (players.turn === 'O') {
+      gameLogic.endTurn();
+    }
+
+    gameBoard.tiles.forEach(function (tile) {
+      tile.innerText = '';
+      tile.classList.remove('player1');
+      tile.classList.remove('player2');
+    });
+  }
+};
+
+var listener = function () {
+  gameBoard.tiles.forEach(function (tile, index) {
+    tile.addEventListener('click', function () {
+      return gameLogic.makeMove(tile, index);
+    });
+  });
+  gameLogic.resetButton.addEventListener('click', gameLogic.resetBoard);
 }();
 //# sourceMappingURL=game.dev.js.map
