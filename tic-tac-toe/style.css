@@ -70,20 +70,6 @@ button::-moz-focus-inner {
   padding-bottom: 10vh;
 }
 
-table {
-  margin: 0 auto;
-  border-collapse: collapse;
-  border-style: hidden;
-}
-table td {
-  padding: 1rem;
-  border: 5px solid lightgray;
-  width: 10vw;
-  height: 10vh;
-  text-align: center;
-  font-size: xx-large;
-}
-
 /* Change players modal */
 .modal {
   display: none;
@@ -185,11 +171,12 @@ label::first-letter {
   color: var(--primary);
 }
 
-.change-players {
-  padding-left: 2vw;
+.game-controls {
+  display: flex;
+  flex-direction: row;
 }
 
-.set-players {
+.set-players, .new-game {
   font-size: 1.8rem;
 
   color: var(--light);
@@ -199,20 +186,20 @@ label::first-letter {
   padding: 1.4rem 3.2rem;
   
   transition: .2s;
+  margin-left: 1vw;
 }
 
-.set-players:hover, .set-players:focus {
+.set-players:hover, .set-players:focus, .new-game:hover, .new-game:focus {
   transform: translateY(-.2rem);
   box-shadow: 0 0 4.4rem .2rem var(--shadow-2);
 }
 
-.set-players:focus {
+.set-players:focus, .new-game:focus {
   box-shadow:
     0 0 4.4rem .2rem var(--shadow-2),
     0 0 0 .4rem var(--global-background),
     0 0 0 .5rem var(--focus);
 }
-
 
 .display {
   color: white;

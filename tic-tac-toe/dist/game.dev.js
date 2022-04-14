@@ -61,7 +61,7 @@ var gameLogic = {
       return;
     }
 
-    if (!gameBoard.board.includes('')) state(tie);
+    if (!gameBoard.board.includes('')) gameLogic.state(players.tie);
   },
   status: document.querySelector('.status'),
   state: function state(type) {
