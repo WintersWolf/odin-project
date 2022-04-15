@@ -10,7 +10,7 @@ const players = {
   p1Total: 0,
   p2Total: 0,
   tie: 'tie',
-  displayTurn: document.querySelector('.display-player'),
+  displayTurn: document.querySelector('.display-player')
 }
 
 const gameLogic = {
@@ -39,6 +39,7 @@ const gameLogic = {
         gameLogic.refresh(index);
         gameLogic.checkWin();
         gameLogic.endTurn();
+        //aiController.aiTurn();
     }
   },
   endTurn: function() {
@@ -116,4 +117,120 @@ const listener = (() => {
     tile.addEventListener('click', () => gameLogic.makeMove(tile, index));
   })
   gameLogic.resetButton.addEventListener('click', gameLogic.resetBoard);
+
+    let modal = document.getElementById("info-players");
+    let btn = document.getElementById("set-players");
+    let span = document.getElementsByClassName("close")[0];
+    let accept = document.getElementById("accept");
+
+    accept.onclick = function() {
+      let setplayerone = document.getElementById('pone').value;
+      let setplayertwo = document.getElementById('ptwo').value;
+      
+      document.getElementById('pone-text').innerHTML = setplayerone;
+      document.getElementById('ptwo-text').innerHTML = setplayertwo;
+      
+      modal.style.display = "none";
+      
+      return false;
+    }
+  
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+  
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+  
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
 })();
+
+const aiController = {
+  aiTurn: function() {
+      let playboard = gameBoard.board;
+      // finding the ultimate play on the game that favors the computer
+      let bestSpot = minimax(playboard, "O");
+      //loging the results
+      console.log("index: " + bestSpot.index);
+      function minimax(newBoard, player){
+        let availSpots = emptyIndexies(newBoard);
+        if (winning(newBoard, "X")){
+          return {score:10};
+        } else if (winning(newBoard, "O")){
+          return {score: 10};
+        } else if (availSpots.length === 0){
+          return{score:0};
+        }
+      
+      let moves = [];
+      for(var i=0; i < availSpots.length; i++) {
+        let move = {};
+        move.index = newBoard[availSpots[i]];
+
+        newBoard[availSpots[i]] = player;
+
+        if (player == "O"){
+          let result = minimax(newBoard, "X");
+          move.score = result.score;
+        } else {
+          let result = minimax(newBoard, "O");
+          move.score = result.score;
+        }
+      
+      newBoard[availSpots[i]] = move.index;
+
+      moves.push(move);
+      }
+
+      let bestMove;
+      if(player === "O"){
+        let bestScore = -10000;
+        for(var i = 0; i < moves.length; i++){
+          if(moves[i].score < bestScore){
+            bestScore = moves[i].score;
+            bestMove = i;
+          }
+        }
+      } else {
+        let bestScore = 10000;
+        for(var i = 0; i < moves.length; i++){
+          if(moves[i].score < bestScore){
+            bestScore = moves[i].score;
+            bestMove = i;
+          }
+        }
+      }
+      
+      return moves[bestMove];
+
+      }
+
+      function emptyIndexies(playboard){
+        
+        return  playboard.filter(s => s != "O" && s != "X");
+      }
+
+      function winning(board, player){
+ if (
+        (board[0] == player && board[1] == player && board[2] == player) ||
+        (board[3] == player && board[4] == player && board[5] == player) ||
+        (board[6] == player && board[7] == player && board[8] == player) ||
+        (board[0] == player && board[3] == player && board[6] == player) ||
+        (board[1] == player && board[4] == player && board[7] == player) ||
+        (board[2] == player && board[5] == player && board[8] == player) ||
+        (board[0] == player && board[4] == player && board[8] == player) ||
+        (board[2] == player && board[4] == player && board[6] == player)
+        ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+      gameLogic.endTurn();
+  }
+}

@@ -29,7 +29,7 @@ var gameLogic = {
       tile.classList.add("player".concat(players.turn));
       gameLogic.refresh(index);
       gameLogic.checkWin();
-      gameLogic.endTurn();
+      gameLogic.endTurn(); //aiController.aiTurn();
     }
   },
   endTurn: function endTurn() {
@@ -114,5 +114,120 @@ var listener = function () {
     });
   });
   gameLogic.resetButton.addEventListener('click', gameLogic.resetBoard);
+  var modal = document.getElementById("info-players");
+  var btn = document.getElementById("set-players");
+  var span = document.getElementsByClassName("close")[0];
+  var accept = document.getElementById("accept");
+
+  accept.onclick = function () {
+    var setplayerone = document.getElementById('pone').value;
+    var setplayertwo = document.getElementById('ptwo').value;
+    document.getElementById('pone-text').innerHTML = setplayerone;
+    document.getElementById('ptwo-text').innerHTML = setplayertwo;
+    modal.style.display = "none";
+    return false;
+  };
+
+  btn.onclick = function () {
+    modal.style.display = "block";
+  };
+
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
 }();
+
+var aiController = {
+  aiTurn: function aiTurn() {
+    var playboard = gameBoard.board; // finding the ultimate play on the game that favors the computer
+
+    var bestSpot = minimax(playboard, "O"); //loging the results
+
+    console.log("index: " + bestSpot.index);
+
+    function minimax(newBoard, player) {
+      var availSpots = emptyIndexies(newBoard);
+
+      if (winning(newBoard, "X")) {
+        return {
+          score: 10
+        };
+      } else if (winning(newBoard, "O")) {
+        return {
+          score: 10
+        };
+      } else if (availSpots.length === 0) {
+        return {
+          score: 0
+        };
+      }
+
+      var moves = [];
+
+      for (var i = 0; i < availSpots.length; i++) {
+        var move = {};
+        move.index = newBoard[availSpots[i]];
+        newBoard[availSpots[i]] = player;
+
+        if (player == "O") {
+          var result = minimax(newBoard, "X");
+          move.score = result.score;
+        } else {
+          var _result = minimax(newBoard, "O");
+
+          move.score = _result.score;
+        }
+
+        newBoard[availSpots[i]] = move.index;
+        moves.push(move);
+      }
+
+      var bestMove;
+
+      if (player === "O") {
+        var bestScore = -10000;
+
+        for (var i = 0; i < moves.length; i++) {
+          if (moves[i].score < bestScore) {
+            bestScore = moves[i].score;
+            bestMove = i;
+          }
+        }
+      } else {
+        var _bestScore = 10000;
+
+        for (var i = 0; i < moves.length; i++) {
+          if (moves[i].score < _bestScore) {
+            _bestScore = moves[i].score;
+            bestMove = i;
+          }
+        }
+      }
+
+      return moves[bestMove];
+    }
+
+    function emptyIndexies(playboard) {
+      return playboard.filter(function (s) {
+        return s != "O" && s != "X";
+      });
+    }
+
+    function winning(board, player) {
+      if (board[0] == player && board[1] == player && board[2] == player || board[3] == player && board[4] == player && board[5] == player || board[6] == player && board[7] == player && board[8] == player || board[0] == player && board[3] == player && board[6] == player || board[1] == player && board[4] == player && board[7] == player || board[2] == player && board[5] == player && board[8] == player || board[0] == player && board[4] == player && board[8] == player || board[2] == player && board[4] == player && board[6] == player) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    gameLogic.endTurn();
+  }
+};
 //# sourceMappingURL=game.dev.js.map
