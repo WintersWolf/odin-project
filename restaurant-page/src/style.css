@@ -4,9 +4,13 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #CC967B;
+}
+
 .home-hero {
   width: 100vw;
-  height: 68vh;
+  height: 73.5vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('./img/eating-food.jpg');
   background-position: top;
   background-size: cover;
@@ -20,7 +24,7 @@
 }
 
 .logo img {
-  width: 250px;
+  width: 200px;
   margin: 1vw;
 }
 
@@ -29,7 +33,7 @@
   flex-direction: row;
   color: white;
   font-family: 'Pacifico', cursive;
-  font-size: xx-large;
+  font-size: x-large;
   margin: 2vw;
 }
 
@@ -37,17 +41,75 @@
   padding-left: 2vw;
 }
 
+.menu span::after {
+  background-color: #efefef; 
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 1px;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,0);
+  width: 50px;
+}
+
+
+.hero-items {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  color: white;
+  font-family: 'Akshar', sans-serif;
+  justify-content: center;
+  align-items:flex-end;
+  font-size: x-large;
+  padding-right: 20vw;
+  padding-top: 10vh;
+}
+
+.hero-items h3, .hero-btn {
+ margin-top: 2vh;
+}
+
+.hero-btn {
+  background-color: #845A4B;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: x-large;
+  font-family: 'Akshar', sans-serif;
+
+}
+
+.hero-btn:hover {
+  background-color: #CC967B;
+}
+
 .home-buttons {
   display: flex;
   flex-direction: row;
-  width: 100vw;
+  width: 100%;
   height: 25vh;
   color: white;
 }
 
-.home-button-l {
+.home-container-l, .home-container-m, .home-container-r {
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.home-container-l, .home-container-r {
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
+}
+
+.home-button-l {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('./img/table-setting.jpg');
   background-position: center;
   background-size: cover;
@@ -55,8 +117,6 @@
 } 
 
 .home-button-m {
-  width: 100%;
-  height: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('./img/hot-plate.jpg');
   background-position: center;
   background-size: cover;
@@ -64,20 +124,25 @@
 }
 
 .home-button-r {
-  width: 100%;
-  height: 100%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('./img/restaurant.jpg');
   background-position: center;
   background-size: cover;
 }
 
 .home-button-l, .home-button-m, .home-button-r {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Akshar', sans-serif;
   font-size: x-large;
+  transition: all 0.5s;
+}
+
+.home-button-l:hover, .home-button-m:hover, .home-button-r:hover {
+  transform: scale(1.2);
 }
 
 .content h2 {
