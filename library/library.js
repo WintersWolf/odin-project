@@ -1,12 +1,15 @@
 let bookCounter = 0;
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-   this.title = title
-   this.author = author
-   this.pages = pages
-   this.read = read
+class Book {
+  constructor(title, author, pages, read){
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
   }
+}
+
 
 // add new Book to array after clearing the table then generating with new data
 function addBookToLibrary(){

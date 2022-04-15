@@ -1,14 +1,18 @@
 "use strict";
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 var bookCounter = 0;
 var myLibrary = [];
 
-function Book(title, author, pages, read) {
+var Book = function Book(title, author, pages, read) {
+  _classCallCheck(this, Book);
+
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-} // add new Book to array after clearing the table then generating with new data
+}; // add new Book to array after clearing the table then generating with new data
 
 
 function addBookToLibrary() {
