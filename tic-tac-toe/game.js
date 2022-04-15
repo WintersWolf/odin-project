@@ -7,6 +7,8 @@ const players = {
   turn: 'X',
   p1Wins: 'p1Wins',
   p2Wins: 'p2Wins',
+  p1Total: 0,
+  p2Total: 0,
   tie: 'tie',
   displayTurn: document.querySelector('.display-player'),
 }
@@ -75,9 +77,13 @@ const gameLogic = {
     switch(type){
         case players.p1Wins:
             gameLogic.status.innerHTML = 'Player <span class="player1">1</span> Wins';
+            players.p1Total++;
+            document.getElementById("pone-score").innerHTML = players.p1Total;
             break;
         case players.p2Wins:
           gameLogic.status.innerHTML = 'Player <span class="player2">2</span> Wins';
+          players.p2Total++;
+          document.getElementById("ptwo-score").innerHTML = players.p2Total;
             break;
         case players.tie:
           gameLogic.status.innerText = 'tie';
