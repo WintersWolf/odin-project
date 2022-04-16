@@ -233,11 +233,11 @@ body {
 
 .menu-item h3 {
   background-color: #fff;
-    font-size: 18px;
-    font-size: 1.125rem;
-    display: inline-block;
-    margin: 0;
-    padding-right: 3px;
+  font-size: 18px;
+  font-size: 1.125rem;
+  display: inline-block;
+  margin: 0;
+  padding-right: 3px;
 }
 
 .menu-item p {
@@ -255,4 +255,98 @@ body {
 
 .menu_item p {
 	margin-bottom: 0;
+}
+
+.delivery-contents {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1.8fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "delivery-left delivery-right";
+  width: 75vw;
+  height: 70vh;
+  position: absolute;
+  margin: 0;
+  top: 15vh;
+  left: 12.5vw;
+}
+
+.delivery-left {
+  grid-area: delivery-left;
+  font-family: 'Akshar', sans-serif;
+}
+
+.delivery-left h2, .delivery-left p {
+  padding-top: 2vh;
+  font-size: 150%;
+  
+}
+
+.delivery-partners {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.delivery-partners img {
+  width: 150px;
+  margin: 10px;
+}
+
+.delivery-right {
+  grid-area: delivery-right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delivery-pic {
+  width: auto;
+  max-height: 70vh;
+  border-radius: 12px;
+}
+
+.delivery-newsletter {
+  background-color: white;
+  border-radius: 12px;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.delivery-signup {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: space-between;
+}
+
+input[type=email]{
+  width: 83%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.sign-up {
+  width: 15%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sign-up:hover {
+  background-color: #45a049;
 }
