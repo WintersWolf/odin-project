@@ -8,6 +8,16 @@ body {
   background-color: #CC967B;
 }
 
+nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  font-family: 'Pacifico', cursive;
+  font-size: x-large;
+  margin: 2vw;
+}
+
 .home-hero {
   width: 100vw;
   height: 73.5vh;
@@ -37,16 +47,15 @@ body {
   margin: 2vw;
 }
 
-.menu span {
+nav span {
   padding-left: 2vw;
 }
 
-.menu span::after {
+nav span::after {
   background-color: #efefef; 
   bottom: 0;
   content: '';
   display: block;
-  height: 1px;
   left: 50%;
   position: absolute;
   transform: translate(-50%,0);
