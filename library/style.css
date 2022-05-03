@@ -1,286 +1,119 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
 
 * {
   box-sizing: border-box;
-	padding: 0;
-	margin: 0;
 }
 
-.container {
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #fef8f8;
+}
+
+.cards {
   display: grid;
-  grid-template-columns: 0.2fr 1.6fr;
-  grid-template-rows: 0.2fr 2.9fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "sidebar nav"
-    "sidebar content";
-  height: 100vh;
-  font-family: "Roboto", sans-serif;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  margin: 4rem 5vw;
+  padding: 0;
+  list-style-type: none;
 }
 
-.nav { 
-  grid-area: nav;
-  background-color: #292e40;
-  color: white;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.bookCount {
-  padding-right: 1vw;
-}
-
-.sidebar { 
-  grid-area: sidebar;
-  background-color: #292e40;
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-}
-
-.content { 
-  grid-area: content;
-  background-color: #ffffff;
-  color: black;
-  overflow: auto;
-}
-
-.logo {
-  width: 150px;
-  margin: 2vh;
-}
-
-a{
-  color: #292e40;
-}
-.page{
-  max-width: 60em;
-  margin: 0 auto;
-}
-
-table th,
-table td{
-  text-align: left;
-}
-table.layout{
-  width: 100%;
-  border-collapse: collapse;
-}
-table.display{
-  margin: 1em 0;
-}
-table.display th,
-table.display td{
-  border: 1px solid #292e40;
-  padding: .5em 1em;
-}
-
-table.display th{ background: #292e40; color: white; }
-table.display td{ background: #fff; }
-
-table.responsive-table{
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 30em){
-    table.responsive-table{
-      box-shadow: none;  
-    }
-    table.responsive-table thead{
-      display: none; 
-    }
-  table.display th,
-  table.display td{
-    padding: .5em;
-  }
-    
-  table.responsive-table td:nth-child(1):before{
-    content: 'Book Name';
-  }
-  table.responsive-table td:nth-child(2):before{
-    content: 'Author';
-  }
-  table.responsive-table td:nth-child(1),
-  table.responsive-table td:nth-child(2){
-    padding-left: 25%;
-  }
-  table.responsive-table td:nth-child(1):before,
-  table.responsive-table td:nth-child(2):before{
-    position: absolute;
-    left: .5em;
-    font-weight: bold;
-  }
-  
-    table.responsive-table tr,
-    table.responsive-table td{
-        display: block;
-    }
-    table.responsive-table tr{
-        position: relative;
-        margin-bottom: 1em;
-    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
-    }
-    table.responsive-table td{
-        border-top: none;
-    }
-    table.responsive-table td.organisationnumber{
-        background: #292e40;
-        border-top: 1px solid #292e40;
-    }
-    table.responsive-table td.actions{
-        position: absolute;
-        top: 0;
-        right: 0;
-        border: none;
-        background: none;
-    }
-}
-
-.button, .Yes {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
+.card {
+  position: relative;
+  display: block;
+  height: 100%;  
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
 }
 
-.No {
-  background-color: red;
+.card__image {      
+  width: 100%;
+  height: auto;
 }
 
-.add-button {
-  background-color: #292e40; 
-  color: white; 
-}
-
-.add-button:hover {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.clear-button {
-  background-color: #292e40; 
-  color: white; 
-}
-
-.clear-button:hover {
-  background-color: red;
-  color: white;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  -webkit-animation-name: fadeIn; /* Fade in the background */
-  -webkit-animation-duration: 0.4s;
-  animation-name: fadeIn;
-  animation-duration: 0.4s
-}
-
-/* Modal Content */
-.modal-content {
-  position: fixed;
+.card__overlay {
+  position: absolute;
   bottom: 0;
-  background-color: #fefefe;
-  width: 100%;
-  -webkit-animation-name: slideIn;
-  -webkit-animation-duration: 0.4s;
-  animation-name: slideIn;
-  animation-duration: 0.4s
+  left: 0;
+  right: 0;
+  z-index: 1;      
+  border-radius: calc(var(--curve) * 1px);    
+  background-color: var(--surface-color);      
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
 }
 
-/* The Close Button */
-.close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+.card:hover .card__overlay {
+  transform: translateY(0);
 }
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;    
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
 }
 
-.modal-header {
-  padding: 3vh 3vw;
-  background-color: #292e40;
-  color: white;
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;      
+  z-index: 1;
 }
 
-.modal-body {padding: 3vh 3vw;}
+.card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}       
 
-.modal-footer {
-  padding: 1vh 3vw;
-  background-color: #292e40;
-  color: white;
+.card:hover .card__header {
+  transform: translateY(0);
 }
 
-/* Add Animation */
-@-webkit-keyframes slideIn {
-  from {bottom: -300px; opacity: 0} 
-  to {bottom: 0; opacity: 1}
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;      
+  border-radius: 50%;      
 }
 
-@keyframes slideIn {
-  from {bottom: -300px; opacity: 0}
-  to {bottom: 0; opacity: 1}
+.card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: #6A515E;
 }
 
-@-webkit-keyframes fadeIn {
-  from {opacity: 0} 
-  to {opacity: 1}
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";  
+  font-size: .8em; 
+  color: #D7BDCA;  
 }
 
-@keyframes fadeIn {
-  from {opacity: 0} 
-  to {opacity: 1}
+.card__status {
+  font-size: .8em;
+  color: #D7BDCA;
 }
 
-input[type=text], input[type=number], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-.removeIcon {
-  width: 2vw;
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #6A515E;
+  font-family: "MockFlowFont";   
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }

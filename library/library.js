@@ -3,10 +3,10 @@ let myLibrary = [];
 
 class Book {
   constructor(title, author, pages, read){
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
   }
 }
 
@@ -21,6 +21,7 @@ function addBookToLibrary(){
   let addition = new Book(addtitle, addauthor, addpages, addread);
   myLibrary.push(addition);
   localStorage.setItem('Book', JSON.stringify(myLibrary));
+  bookCounter++;
   Display();
   modal.style.display = "none";
     
@@ -41,7 +42,7 @@ function Display(){
     entries.innerHTML += tr;
 }
 }
-document.getElementById('bookCount').innerHTML = 'You have ' + i + ' books.';
+document.getElementById('bookCount').innerHTML = 'You have ' + bookCounter + ' books.';
 }
 
 function Refresh(){
@@ -61,6 +62,7 @@ const deleteBook = (index) => {
   myLibrary.splice(index, 1);
   localStorage.getItem('Book');
   localStorage.setItem('Book', JSON.stringify(myLibrary));
+  bookCounter--;
   Refresh();
   Display();
 };
@@ -79,9 +81,8 @@ const readBook = (index) => {
     Display();
   }
   
-}
+};
 Display();
-console.log(bookCounter);
 
 // Display modal on click of button and close when clicking outside of modal or on x
 var modal = document.getElementById("myModal");
@@ -91,14 +92,14 @@ var span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
   modal.style.display = "block";
-}
+};
 
 span.onclick = function() {
   modal.style.display = "none";
-}
+};
 
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
