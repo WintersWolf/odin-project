@@ -8,11 +8,21 @@
 
 </head>
 <body>
+
+  <p>Enter a short URL and click "Expand URL" to get the full URL.</p>
+  <div id="requestFields" style="display:none;">
+    <label for="shortUrl">Short URL </label>
+    <input id="shortUrl" type="text" value="http://goo.gl/fbsS" />
+    <button onclick="makeRequest();">
+      Expand URL
+    </button>
+  </div>
+  <div style="margin-top:0.5em;"><span id="info">Results</span></div>  
 <!-- partial:index.partial.html -->
 <ul class="cards">
   <li>
     <a href="" class="card">
-      <img src="https://static.wikia.nocookie.net/harrypotter/images/6/6d/Chamber_of_Secrets_New_UK_Cover.jpg/revision/latest?cb=20170109045927" class="card__image" alt="" />
+      <img src="http://books.google.com/books/content?id=1o7D0m_osFEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="card__image" alt="" />
       <div class="card__overlay">
         <div class="card__header">
           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
@@ -28,7 +38,7 @@
   </li>
   <li>
     <a href="" class="card">
-      <img src="https://i.harperapps.com/hcanz/covers/9780007322497/y648.jpg" class="card__image" alt="" />
+      <img src="http://books.google.com/books/content?id=Dw-NAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="card__image" alt="" />
       <div class="card__overlay">        
         <div class="card__header">
           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
@@ -44,7 +54,7 @@
   </li>
   <li>
     <a href="" class="card">
-      <img src="https://images-na.ssl-images-amazon.com/images/I/71bZSV0ULUL.jpg" class="card__image" alt="" />
+      <img src="http://books.google.com/books/content?id=XFxdywAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api" class="card__image" alt="" />
       <div class="card__overlay">
         <div class="card__header">
           <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
@@ -93,7 +103,10 @@
     
 </ul>
 <!-- partial -->
-  <script  src="./library.js"></script>
-
+<script  src="./mylib.js"></script>
+<script async defer src="https://apis.google.com/js/api.js"
+  onload="this.onload=function(){};handleClientLoad();"
+  onreadystatechange="if (this.readyState === 'complete') this.onload();">
+</script>
 </body>
 </html>
