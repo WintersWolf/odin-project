@@ -3,7 +3,7 @@ function handleForm(event) { event.preventDefault(); }
 noRefresh.addEventListener('submit', handleForm);
 
  const doSearch = async () => {
-  const search = document.getElementById('books').value; 
+  const search = document.getElementById('search_term').value; 
   const response = await fetch(
     "https://www.googleapis.com/books/v1/volumes?q=" + search, {
       method: "GET",
