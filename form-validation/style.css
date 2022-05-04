@@ -149,10 +149,6 @@ input:focus:invalid {
 }
 
 
-.form-control.input-container.ic1.success input {
-	border-color: #2ecc71;
-}
-
 .form-control.input-container.ic1.error input {
 	border-color: #e74c3c;
 }
