@@ -3,110 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <title>myLIB | Personal Library Management</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./mylib.css">
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link rel="stylesheet" href="./css/style.css">
+  <meta name="google-signin-client_id" content="978075517657-cnqb3drkldit8ereb0ob8uubt90k7dlp.apps.googleusercontent.com" />
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+  <div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper blue darken-3">
+      <a href="#" class="brand-logo">myLIB</a>
+      
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="javascript:void(0);">Find Books</a></li>
+        <li><a href="javascript:void(0);">Your Bookshelves</a></li>
+        <li><a href="javascript:void(0);">Read a Book</a></li>
+        <li><a href="javascript:void(0);" class="btn g-signin2">Sign In</a></li>
+      </ul>
+      
+    </div>
+  </nav>
+</div>
+<div class="container">
 
-  <p>Enter a short URL and click "Expand URL" to get the full URL.</p>
-  <div id="requestFields" style="display:none;">
-    <label for="shortUrl">Short URL </label>
-    <input id="shortUrl" type="text" value="http://goo.gl/fbsS" />
-    <button onclick="makeRequest();">
-      Expand URL
-    </button>
-  </div>
-  <div style="margin-top:0.5em;"><span id="info">Results</span></div>  
-<!-- partial:index.partial.html -->
-<ul class="cards">
-  <li>
-    <a href="" class="card">
-      <img src="http://books.google.com/books/content?id=1o7D0m_osFEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="card__image" alt="" />
-      <div class="card__overlay">
-        <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-          <img class="card__thumb" src="./img/wizard.png" alt="" />
-          <div class="card__header-text">
-            <h3 class="card__title">Harry Potter and the Chamber of Secrets</h3>            
-            <span class="card__status">JK Rowling</span>
-          </div>
-        </div>
-        <p class="card__description">With their message of hope, belonging and the enduring power of truth and love, the story of the Boy Who Lived.</p>
-      </div>
-    </a>      
-  </li>
-  <li>
-    <a href="" class="card">
-      <img src="http://books.google.com/books/content?id=Dw-NAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api" class="card__image" alt="" />
-      <div class="card__overlay">        
-        <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-          <img class="card__thumb" src="./img/wizard.png" alt="" />
-          <div class="card__header-text">
-            <h3 class="card__title">The Fellowship of the Ring</h3>
-            <span class="card__status">JRR Tolkien</span>
-          </div>
-        </div>
-        <p class="card__description">The Fellowship of the Ring is the first of three volumes of the epic novel The Lord of the Rings.</p>
-      </div>
-    </a>
-  </li>
-  <li>
-    <a href="" class="card">
-      <img src="http://books.google.com/books/content?id=XFxdywAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api" class="card__image" alt="" />
-      <div class="card__overlay">
-        <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-          <img class="card__thumb" src="./img/hacker.png" alt="" />
-          <div class="card__header-text">
-            <h3 class="card__title">Ghost in the Wires</h3>          
-            <span class="card__status"> Kevin Mitnick</span>
-          </div>
-        </div>
-        <p class="card__description">Kevin Mitnick was the most elusive computer break-in artist in history. He accessed computers and networks.</p>
-      </div>
-    </a>
-  </li>
-  <li>
-    <a href="" class="card">
-      <img src="https://images-na.ssl-images-amazon.com/images/I/51wXCuZvebL.jpg" class="card__image" alt="" />
-      <div class="card__overlay">
-        <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-          <img class="card__thumb" src="./img/soldier.png" alt="" />
-          <div class="card__header-text">
-            <h3 class="card__title">The Circumstantial Enemy</h3>
-            <span class="card__status">John Bell</span>
-          </div>          
-        </div>
-        <p class="card__description">Carefree young pilot Tony Babic finds himself forcibly aligned with Hitler’s Luftwaffe.</p>
-      </div>
-    </a>
-  </li>
-  <li>
-    <a href="" class="card">
-      <img src="https://images-na.ssl-images-amazon.com/images/I/51wXCuZvebL.jpg" class="card__image" alt="" />
-      <div class="card__overlay">
-        <div class="card__header">
-          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-          <img class="card__thumb" src="./img/soldier.png" alt="" />
-          <div class="card__header-text">
-            <h3 class="card__title">The Circumstantial Enemy</h3>
-            <span class="card__status">John Bell</span>
-          </div>          
-        </div>
-        <p class="card__description">Carefree young pilot Tony Babic finds himself forcibly aligned with Hitler’s Luftwaffe.</p>
-      </div>
-    </a>
-  </li> 
-    
-</ul>
-<!-- partial -->
-<script  src="./mylib.js"></script>
-<script async defer src="https://apis.google.com/js/api.js"
-  onload="this.onload=function(){};handleClientLoad();"
-  onreadystatechange="if (this.readyState === 'complete') this.onload();">
-</script>
+</div>
+
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script  src=""></script>
 </body>
 </html>
