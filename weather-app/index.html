@@ -13,21 +13,32 @@
   <div class="darken"></div>
   <div class="content">
     <div class="search">
+      <form onsubmit="userSearch(event)" >
+        <div class="search-box">
+          <button class="btn-search">
+            <i class="material-icons">search</i>
+          </button>
+          <input type="text" class="input-search" placeholder="Enter city name..." id="searchBox">
+        </div>
+      </form>
+      <div class="settings" id="settings">
+        <div class="unit-toggle units">
+          <input id="units" type="checkbox" onclick="setUnits()">
+          <label for="units">
+            <div class="unit-toggle__switch" data-checked="°F" data-unchecked="°C" id="switch" ></div>
+            <div class="unit-toggle__label-text"></div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="weather">
       <div class="location">
         <img src="#" id="current_icon" class="weather_icons" />
-        <h1><span id="temp"></span>°C</h1>
+        <h1><span id="temp"></span><span id="symbol"></span></h1>
         <h2 id="city"></h2>
         <p id="weather"></p>
         <p>Sunrise <span id="sunrise"></span></p>
         <p>Sunset <span id="sunset"></span></p>
-        <form onsubmit="userSearch(event)" >
-          <div class="search-box">
-            <button class="btn-search">
-              <i class="material-icons">search</i>
-                        </button>
-            <input type="text" class="input-search" placeholder="Type to Search..." id="searchBox">
-          </div>
-        </form>
       </div>
     </div>
     <div class="stats">
@@ -44,7 +55,7 @@
         <p>Monday</p>
       </div>
       <div class="day2">
-        <img src="./assets/icons/Raining.png" class="weather_icons" alt="">
+        <img src="./assets/icons/Rain.png" class="weather_icons" alt="">
         <p>18 / 26</p>
         <p>Tuesday</p>
       </div>
@@ -59,7 +70,7 @@
         <p>Thursday</p>
       </div>
       <div class="day5">
-        <img src="./assets/icons/Smoke.png" class="weather_icons" alt="">
+        <img src="./assets/icons/Tornado.png" class="weather_icons" alt="">
         <p>18 / 26</p>
         <p>Friday</p>
       </div>
@@ -69,7 +80,7 @@
         <p>Saturday</p>
       </div>
       <div class="day7">
-        <img src="./assets/icons/Dust.png" class="weather_icons" alt="">
+        <img src="./assets/icons/Storm.png" class="weather_icons" alt="">
         <p>18 / 26</p>
         <p>Sunday</p>
       </div>
