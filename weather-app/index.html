@@ -5,11 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atmo | Weather Dash</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css">
-  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <img class="bg" src="./assets/img/background.jpg" />
@@ -18,10 +15,18 @@
     <div class="search">
       <div class="location">
         <h1>28°C</h1>
-        <h2>Brisbane</h2>
+        <h2 id="city">Test</h2>
         <p>Clear Sky</p>
         <p>Sunrise 05:36 AM</p>
         <p>Sunset 06:12 PM</p>
+        <form onsubmit="doSearch(event)" >
+          <div class="search-box">
+            <button class="btn-search">
+              <i class="material-icons">search</i>
+                        </button>
+            <input type="text" class="input-search" placeholder="Type to Search..." id="searchBox">
+          </div>
+        </form>
       </div>
     </div>
     <div class="stats">
