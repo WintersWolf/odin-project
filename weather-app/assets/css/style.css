@@ -140,6 +140,14 @@ img.bg {
     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
   }
 
+  #weather {
+    text-transform: lowercase;
+  }
+
+  #weather::first-letter {
+    text-transform: uppercase;
+  }
+
 @media screen and (max-width: 1024px) { /* Specific to this particular image */
   img.bg {
     left: 50%;
