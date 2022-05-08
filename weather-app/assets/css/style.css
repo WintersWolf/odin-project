@@ -73,14 +73,26 @@ img.bg {
   flex-direction: row;
 }
 .location {
+  width: 60%;
+  height: 100%;
   padding: 1rem;
   border: 1px solid white;
   border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .location_stats {
+  width: 60%;
+  height: 100%;
   padding: 1rem;
   border: 1px solid white;
   border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .day1,
 .day2,
@@ -89,6 +101,7 @@ img.bg {
 .day5,
 .day6,
 .day7 {
+  width: 12.5%;
   margin: 1rem;
   padding: 1rem;
   display: flex;

@@ -35,15 +35,19 @@ async function doSearch(endpoint) {
   const temp = document.getElementById('temp');
   const name = document.getElementById('city');
   const weather = document.getElementById('weather');
-  const sunrise = document.getElementById('sunrise');
-  const sunset = document.getElementById('sunset');
   const weatherSymbol = document.getElementById('symbol');
+  const low = document.getElementById('low');
+  const lowSymbol = document.getElementById('lowsymbol');
+  const high = document.getElementById('high');
+  const highSymbol = document.getElementById('highsymbol');
 
   // Get elements from location_stats div
   const pressure = document.getElementById('pressure');
   const humidity = document.getElementById('humidity');
   const wind = document.getElementById('wind');
-  const offset = data.timezone;
+  const speed = document.getElementById('speed');
+  const sunrise = document.getElementById('sunrise');
+  const sunset = document.getElementById('sunset');
   const sunriseTime = data.sys.sunrise;
   const getSunrise = await getTime(sunriseTime);
   const sunsetTime = data.sys.sunset;
@@ -55,19 +59,32 @@ async function doSearch(endpoint) {
   
   if ( unit == 'metric' ) {
     weatherSymbol.innerHTML = '°C';
+    lowSymbol.innerHTML = '°C';
+    highSymbol.innerHTML = '°C';
+    speed.innerHTML = 'kmph';
   } else if ( unit == 'imperial' ) {
     weatherSymbol.innerHTML = '°F';
+    lowSymbol.innerHTML = '°F';
+    highSymbol.innerHTML = '°F';
+    speed.innerHTML = 'mph';
   }
 
   name.innerHTML = data.name;
   weather.innerHTML = data.weather[0].description;
-  sunrise.innerHTML = getSunrise;
-  sunset.innerHTML = getSunset;
+  low.innerHTML = parseInt(data.main.temp_min);
+  high.innerHTML = parseInt(data.main.temp_max);
 
   // Give data from search to location_stats div elements
   pressure.innerHTML = data.main.pressure;
   humidity.innerHTML = data.main.humidity;
-  wind.innerHTML = data.wind.speed;
+  wind.innerHTML = parseInt(data.wind.speed * 3.6);
+  sunrise.innerHTML = getSunrise;
+  sunset.innerHTML = getSunset;
+  console.log(data);
+}
+
+async function getForecast(lat, long) {
+
 }
 
 // Re-do current location search
@@ -78,7 +95,7 @@ function redoSearch() {
 
 // Convert unix time to regular datetime
 async function getTime(unixtime) {
-  const time = new Date(unixtime).toLocaleTimeString(undefined,
+  const time = new Date(unixtime * 1000).toLocaleTimeString(undefined,
     {
       hour: '2-digit',
       minute: '2-digit'
