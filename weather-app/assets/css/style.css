@@ -51,6 +51,8 @@ img.bg {
   display: flex;
   justify-content: left;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .stats {
   grid-area: 2/3/7/5;
@@ -58,6 +60,8 @@ img.bg {
   height: 100%;
   display: flex;
   justify-content: right;
+  justify-content: center;
+  align-items: center;
 }
 .forecast {
   grid-area: 7/1/11/5;
@@ -70,9 +74,13 @@ img.bg {
 }
 .location {
   padding: 1rem;
+  border: 1px solid white;
+  border-radius: 25px;
 }
 .location_stats {
   padding: 1rem;
+  border: 1px solid white;
+  border-radius: 25px;
 }
 .day1,
 .day2,
@@ -81,11 +89,14 @@ img.bg {
 .day5,
 .day6,
 .day7 {
+  margin: 1rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 1px solid white;
+  border-radius: 25px;
 }
 .search-box {
   width: fit-content;
@@ -108,7 +119,7 @@ img.bg {
   color: #fff;
 }
 .input-search::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 18px;
   letter-spacing: 2px;
   font-weight: 100;
@@ -219,7 +230,7 @@ img.bg {
 }
 .unit-toggle input[type="checkbox"]:focus ~ label .unit-toggle__switch,
 .unit-toggle input[type="checkbox"]:hover ~ label .unit-toggle__switch {
-  background-color: #777;
+  background-color: transparent;
 }
 .unit-toggle input[type="checkbox"]:focus ~ label .unit-toggle__switch:after,
 .unit-toggle input[type="checkbox"]:hover ~ label .unit-toggle__switch:after {
@@ -232,14 +243,14 @@ img.bg {
   color: #6a6a6a;
 }
 .unit-toggle input[type="checkbox"]:checked ~ label .unit-toggle__switch {
-  background-color: #6a6a6a;
+  background-color: transparent;
 }
 .unit-toggle input[type="checkbox"]:checked ~ label .unit-toggle__switch:after {
   color: #6a6a6a;
 }
 .unit-toggle input[type="checkbox"]:checked:focus ~ label .unit-toggle__switch,
 .unit-toggle input[type="checkbox"]:checked:hover ~ label .unit-toggle__switch {
-  background-color: #6a6a6a;
+  background-color: transparent;
 }
 .unit-toggle input[type="checkbox"]:checked:focus ~ label .unit-toggle__switch:after,
 .unit-toggle input[type="checkbox"]:checked:hover ~ label .unit-toggle__switch:after {
@@ -250,10 +261,12 @@ img.bg {
 }
 .unit-toggle label .unit-toggle__switch {
   transition: background-color 0.3s cubic-bezier(0, 1, 0.5, 1);
-  background: #848484;
+  background: transparent;
+  border: 1px solid white;
+  border-radius: 25px;
 }
 .unit-toggle label .unit-toggle__switch:before {
-  color: rgba(255, 255, 255, 0.5);
+  color: white;
 }
 .unit-toggle label .unit-toggle__switch:after {
   -webkit-transition: -webkit-transform 0.3s cubic-bezier(0, 1, 0.5, 1);
@@ -275,7 +288,7 @@ img.bg {
   font-size: 14px;
 }
 .unit-toggle label .unit-toggle__switch {
-  height: 36px;
+  height: 38px;
   flex: 0 0 134px;
   border-radius: 4px;
 }

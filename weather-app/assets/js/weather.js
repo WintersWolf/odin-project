@@ -16,11 +16,9 @@ function userSearch(event) {
   // Build API call url from user search
   const endpoint = new URL(`http://api.openweathermap.org/data/2.5/weather?q=${ search }&units=${ unit }&appid=97da4e49080576a7d29b10e6a27ba3fa`);
   doSearch(endpoint);
-  console.log('sent request');
 }
 
 async function doSearch(endpoint) {
-  console.log('got request');
   // Make API call with the url built in userSearch()
   const response = await fetch(endpoint);
   // If call fails, do something
@@ -73,7 +71,6 @@ async function doSearch(endpoint) {
 }
 
 // Re-do current location search
-
 function redoSearch() {
   const endpoint = new URL(`http://api.openweathermap.org/data/2.5/weather?q=${ currentLocation }&units=${ unit }&appid=97da4e49080576a7d29b10e6a27ba3fa`);
   doSearch(endpoint);
