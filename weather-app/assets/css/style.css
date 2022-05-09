@@ -397,7 +397,7 @@ img.bg {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(20, 1fr);
     grid-column-gap: 0;
-    grid-row-gap: 10vh;
+    grid-row-gap: 5rem;
     margin-bottom: 2rem;
   }
   .search {
