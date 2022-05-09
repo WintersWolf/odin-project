@@ -18,12 +18,6 @@ img.bg {
   left: 0;
   z-index: -1;
 }
-.darken {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-}
 .content {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -403,12 +397,6 @@ img.bg {
   .search {
     grid-area: 1 / 1 / 2 / 3;
     height: 50px;
-  }
-  .darken {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    width: 100vw;
-    height: 230vh;
-    z-index: 0;
   }
   .weather {
     grid-area: 2 / 1 / 6 / 3;
