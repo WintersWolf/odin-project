@@ -33,7 +33,7 @@
     </div>
     <div class="weather">
       <div class="location">
-        <div class="location_content">
+        <div class="location-content">
           <img src="#" id="current_icon" class="weather_icons" />
           <h1><span id="temp"></span><span id="symbol"></span></h1>
           <h2 id="city"></h2>
@@ -44,58 +44,84 @@
       </div>
     </div>
     <div class="stats">
-      <div class="location_stats">
-        <div class="stats_content">
+      <div class="location-stats">
+        <div class="stats-content">
+          <p>Feels Like: <span id="feels"></span><span id="feels_symbol"></span></p>
           <p>Pressure: <span id="pressure"></span> hPa</p>
           <p>Humidity: <span id="humidity"></span>%</p>
-          <p>Wind: <span id="wind"></span> <span id="speed"></span></p>
-          <p>Sunrise: <span id="sunrise"></span></p>
-          <p>Sunset: <span id="sunset"></span></p>
+          
+          <!-- <p>Sunrise: <span id="sunrise"></span> AM</p>
+          <p>Sunset: <span id="sunset"></span> PM</p> -->
         </div>
       </div>
     </div>
+    <div class="stats-secondary">
+      <div class="location-stats-secondary">
+        <div class="stats-content-secondary">
+          <p>Wind: <span id="wind"></span> <span id="speed"></span></p>
+          <p>Cloudiness: <span id="cover"></span>%</p>
+        </div>
+      </div>
+    </div>
+    <div class="hourly">
+      <div class="hourly-stats">
+        <div class="hourly-content">  
+          <div class="hourly-left">
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+          </div>
+          <div class="hourly-right">
+            <p>Test</p>
+            <p>Test</p>
+            <p>Test</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <div class="forecast">
       <div class="day1">
-        <img src="./assets/icons/Snow.png" class="weather_icons" alt="">
-        <p>18 / 26</p>
-        <p>Snowing</p>
-        <p>Monday</p>
+        <img src="#" id="day1-icon" class="weather_icons" alt="">
+        <p><span id="day1-low"></span> / <span id="day1-high"></span></p>
+        <p id="day1-desc"></p>
+        <p id="day1-text"></p>
       </div>
       <div class="day2">
-        <img src="./assets/icons/Rain.png" class="weather_icons" alt="">
-        <p>18 / 26</p>
-        <p>Raining</p>
-        <p>Tuesday</p>
+        <img src="#" id="day2-icon" class="weather_icons" alt="">
+        <p><span id="day2-low"></span> / <span id="day2-high"></span></p>
+        <p id="day2-desc"></p>
+        <p id="day2-text"></p>
       </div>
       <div class="day3">
-        <img src="./assets/icons/Clear.png" class="weather_icons" alt="">
-        <p>18 / 26</p>
-        <p>Clear sky</p>
-        <p>Wednesday</p>
+        <img src="#" id="day3-icon" class="weather_icons" alt="">
+        <p><span id="day3-low"></span> / <span id="day3-high"></span></p>
+        <p id="day3-desc"></p>
+        <p id="day3-text"></p>
       </div>
       <div class="day4">
-        <img src="./assets/icons/Clear.png" class="weather_icons" alt="">
-        <p>18 / 26</p>
-        <p>Clear sky</p>
-        <p>Thursday</p>
+        <img src="#" id="day4-icon" class="weather_icons" alt="">
+        <p><span id="day4-low"></span> / <span id="day4-high"></span></p>
+        <p id="day4-desc"></p>
+        <p id="day4-text"></p>
       </div>
       <div class="day5">
-        <img src="./assets/icons/Tornado.png" class="weather_icons" alt="">
-        <p>18 / 26</p>
-        <p>Tornado</p>
-        <p>Friday</p>
+        <img src="#" id="day5-icon" class="weather_icons" alt="">
+        <p><span id="day5-low"></span> / <span id="day5-high"></span></p>
+        <p id="day5-desc"></p>
+        <p id="day5-text"></p>
       </div>
       <div class="day6">
-        <img src="./assets/icons/Snow.png" class="weather_icons" alt="">
-        <p>18 / 26</p>
-        <p>Snowing</p>
-        <p>Saturday</p>
+        <img src="#" id="day6-icon" class="weather_icons" alt="">
+        <p><span id="day6-low"></span> / <span id="day6-high"></span></p>
+        <p id="day6-desc"></p>
+        <p id="day6-text"></p>
       </div>
       <div class="day7">
-        <img src="./assets/icons/Storm.png" class="weather_icons" alt="">
-        <p>18 / 26</p>
-        <p>Storms</p>
-        <p>Sunday</p>
+        <img src="#" id="day7-icon" class="weather_icons" alt="">
+        <p><span id="day7-low"></span> / <span id="day7-high"></span></p>
+        <p id="day7-desc"></p>
+        <p id="day7-text"></p>
       </div>
     </div>
   </div> 

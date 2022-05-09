@@ -29,15 +29,15 @@ img.bg {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(10, 1fr);
-  grid-column-gap: 0;
-  grid-row-gap: 0;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px; 
   width: 99vw;
   height: 98vh;
   position: absolute;
   top: 0;
 }
 .search {
-  grid-area: 1/1/2/5;
+  grid-area: 1 / 1 / 2 / 6;
   width: 100%;
   height: 100%;
   display: flex;
@@ -45,9 +45,10 @@ img.bg {
   justify-content: space-between;
 }
 .weather {
-  grid-area: 2/1/7/3;
+  grid-area: 2 / 1 / 7 / 3;
   width: 100%;
   height: 100%;
+  padding: 1rem;
   display: flex;
   justify-content: left;
   flex-direction: column;
@@ -55,16 +56,75 @@ img.bg {
   align-items: center;
 }
 .stats {
-  grid-area: 2/3/7/5;
+  grid-area: 2 / 3 / 4 / 4;
   width: 100%;
   height: 100%;
+  padding: 1rem;
   display: flex;
   justify-content: right;
   justify-content: center;
   align-items: center;
 }
+
+.stats-secondary {
+  grid-area: 2 / 4 / 4 / 5;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: right;
+  justify-content: center;
+  align-items: center;
+}
+
+.location-stats-secondary {
+  width: 90%;
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid white;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hourly {
+  grid-area: 4 / 3 / 7 / 5;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: right;
+  justify-content: center;
+  align-items: center;
+}
+
+.hourly-stats {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid white;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hourly-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.hourly-left, .hourly-right {
+  padding: 1rem;
+}
+
 .forecast {
-  grid-area: 7/1/11/5;
+  grid-area: 7 / 1 / 11 / 5;
   width: 100%;
   height: 100%;
   display: flex;
@@ -73,7 +133,7 @@ img.bg {
   flex-direction: row;
 }
 .location {
-  width: 60%;
+  width: 90%;
   height: 100%;
   padding: 1rem;
   border: 1px solid white;
@@ -83,8 +143,8 @@ img.bg {
   justify-content: center;
   align-items: center;
 }
-.location_stats {
-  width: 60%;
+.location-stats {
+  width: 90%;
   height: 100%;
   padding: 1rem;
   border: 1px solid white;
@@ -94,6 +154,7 @@ img.bg {
   justify-content: center;
   align-items: center;
 }
+
 .day1,
 .day2,
 .day3,
