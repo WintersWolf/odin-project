@@ -206,6 +206,13 @@ async function getForecast(lat, lon) {
   const day7time = data.daily[6].dt;
   day7text.innerHTML = await (await getDate(day7time)).substring(0, 3);
   
+  console.log(data);
+
+  // Generate hourly forecast arrays for chart.js
+  
+  let chartdata = [{ label: (await getTime(data.hourly[0].dt)).substring(0,5), y: parseInt(data.hourly[0].temp)}, { label: (await getTime(data.hourly[1].dt)).substring(0,5), y: parseInt(data.hourly[1].temp)}, { label: (await getTime(data.hourly[2].dt)).substring(0,5), y: parseInt(data.hourly[2].temp)}, { label: (await getTime(data.hourly[3].dt)).substring(0,5), y: parseInt(data.hourly[3].temp)}, { label: (await getTime(data.hourly[4].dt)).substring(0,5), y: parseInt(data.hourly[4].temp) }, { label: (await getTime(data.hourly[5].dt)).substring(0,5), y: parseInt(data.hourly[5].temp) }, { label: (await getTime(data.hourly[6].dt)).substring(0,5), y: parseInt(data.hourly[6].temp) }, { label: (await getTime(data.hourly[7].dt)).substring(0,5), y: parseInt(data.hourly[7].temp) }, { label: (await getTime(data.hourly[8].dt)).substring(0,5), y: parseInt(data.hourly[8].temp) }, { label: (await getTime(data.hourly[9].dt)).substring(0,5), y: parseInt(data.hourly[9].temp) }, { label: (await getTime(data.hourly[10].dt)).substring(0,5), y: parseInt(data.hourly[10].temp)}, { label: (await getTime(data.hourly[11].dt)).substring(0,5), y: parseInt(data.hourly[11].temp) }];
+  console.log(chartdata);
+  makeChart(chartdata);
 }
 
 // Convert unix time to readable time
@@ -231,3 +238,32 @@ function setUnits() {
 
   redoSearch();
 }
+
+function makeChart(chartdata) {
+
+  let chart = new CanvasJS.Chart("hourlyChart", {
+    animationEnabled: true,
+    backgroundColor: "transparent",
+    
+    title:{
+      text: "Hourly Forecast",
+      fontColor: "#ffff",
+    },
+    axisX: {
+      labelFontColor: "#ffff",
+      gridColor: "#ffff",
+    },
+    axisY: {
+      labelFontColor: "#ffff",
+      gridColor: "#ffff",
+    },
+    data: [{        
+      type: "line",
+          indexLabelFontSize: 16,
+      dataPoints: chartdata
+    }]
+  });
+  chart.render();
+  
+}
+
