@@ -3,7 +3,7 @@ let unit = 'metric';
 let currentLocation = 'Brisbane';
 
 // Perform default search for Brisbane
-doSearch('http://api.openweathermap.org/data/2.5/weather?q=Brisbane&units=metric&appid=97da4e49080576a7d29b10e6a27ba3fa');
+doSearch('https://api.openweathermap.org/data/2.5/weather?q=Brisbane&units=metric&appid=97da4e49080576a7d29b10e6a27ba3fa');
 
 // User location search
 function userSearch(event) {
@@ -14,7 +14,7 @@ function userSearch(event) {
   // Update current location
   currentLocation = search;
   // Build API call url from user search
-  const endpoint = new URL(`http://api.openweathermap.org/data/2.5/weather?q=${ search }&units=${ unit }&appid=97da4e49080576a7d29b10e6a27ba3fa`);
+  const endpoint = new URL(`https://api.openweathermap.org/data/2.5/weather?q=${ search }&units=${ unit }&appid=97da4e49080576a7d29b10e6a27ba3fa`);
   doSearch(endpoint);
 }
 
@@ -98,12 +98,12 @@ async function doSearch(endpoint) {
 
 // Re-do current location search
 function redoSearch() {
-  const endpoint = new URL(`http://api.openweathermap.org/data/2.5/weather?q=${ currentLocation }&units=${ unit }&appid=97da4e49080576a7d29b10e6a27ba3fa`);
+  const endpoint = new URL(`https://api.openweathermap.org/data/2.5/weather?q=${ currentLocation }&units=${ unit }&appid=97da4e49080576a7d29b10e6a27ba3fa`);
   doSearch(endpoint);
 }
 
 async function getForecast(lat, lon) {
-  const forecast = new URL(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${ unit }&appid=97da4e49080576a7d29b10e6a27ba3fa`);
+  const forecast = new URL(`https://api.openweathermap.org/data/2.5/onecall?lat=${ lat }&lon=${ lon }&units=${ unit }&appid=97da4e49080576a7d29b10e6a27ba3fa`);
   const response = await fetch(forecast);
   const data = await response.json();
   //console.log(data);
