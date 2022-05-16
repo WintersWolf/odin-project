@@ -58,6 +58,113 @@ body {
     background-position: top;
 }
 
+.about {
+    width: 33%;
+    height: 100%;
+    min-width: 720px;
+    min-height: 900px;
+    background-image: url('../img/bg_menu.png');
+    background-size: cover;
+    background-position: center;
+    background-position: top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.about_bg {
+    width: 484px;
+    height: 432px;
+    background-image: url('../img/window.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+.about_bg a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    z-index: 0;
+}
+
+.about_title {
+    width: 200px;
+}
+
+.about_close {
+    width: 50px;
+    z-index: 2;
+    position: absolute;
+    margin-bottom: 410px;
+    margin-left: 460px;
+}
+
+.about_content {
+    width: 384px;
+    height: 282px;
+    position: absolute;
+    z-index: 1;
+    margin-left: 50px;
+    margin-top: 100px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    color: white;
+    }
+    
+    .author {
+        grid-area: 1 / 1 / 2 / 3;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .desc {
+        grid-area: 2 / 1 / 4 / 3;
+        margin-top: 20px;
+    }
+
+    .portfolio {
+        grid-area: 4 / 1 / 5 / 2;
+        display: flex;
+        justify-content: center;
+        font-size: x-large;
+    }
+
+    .github {
+        grid-area: 4 / 2 / 5 / 3;
+        display: flex;
+        justify-content: center;
+        font-size: x-large;
+    }
+
+    .linkedin {
+        grid-area: 5 / 1 / 6 / 2;
+        display: flex;
+        justify-content: center;
+        font-size: x-large;
+    }
+
+    .twitter {
+        grid-area: 5 / 2 / 6 / 3;
+        display: flex;
+        justify-content: center;
+        font-size: x-large;
+    } 
+
+    .portfolio a, .github a, .linkedin a, .twitter a {
+        text-decoration: none;
+        color: white;
+        margin-top: 20px;
+    }
+
 .hidden {
     display: none;
 }
