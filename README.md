@@ -16,5 +16,6 @@ This repository contains projects from the curriculum, acting as a way to show p
 | Library | [View Repo](https://github.com/wintersdev/odin-project/tree/main/library) | [View Demo](https://wintersdev.github.io/odin-project/library/index.html) |
 | Tic-Tac-Toe | [View Repo](https://github.com/wintersdev/odin-project/tree/main/tic-tac-toe) | [View Demo](https://wintersdev.github.io/odin-project/tic-tac-toe/) |
 | Restaurant Page | [View Repo](https://github.com/wintersdev/odin-project/tree/main/restaurant-page) | [View Demo](https://wintersdev.github.io/odin-project/restaurant-page/) |
+| Form Validation | [View Repo](https://github.com/wintersdev/odin-project/tree/main/form-validation) | [View Demo](https://wintersdev.github.io/odin-project/form-validation/) |
 | Weather App | [View Repo](https://github.com/wintersdev/odin-project/tree/main/weather-app) | [View Demo](https://wintersdev.github.io/odin-project/weather-app/) |
 | Battleship | [View Repo](https://github.com/wintersdev/odin-project/tree/main/Battleship) | [View Demo](https://wintersdev.github.io/odin-project/Battleship/) |
